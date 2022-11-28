@@ -1,2 +1,4 @@
-const test_func = new test('', '');
-test_func.init ();
+import humMenu from "./modules/humMenu";
+
+const hum_menu = new humMenu();
+hum_menu.init ();

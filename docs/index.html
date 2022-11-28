@@ -4,28 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/main.css">
     <title>Document</title>
 </head>
 <body>
-    <header class="header">
+    <!-- header -->
+    <header id="header" class="header">
         <div class="header__inner">
             <h1 class="header__logo">
-                <a href="/dist/">LOGOLOGO</a>
+                <a href="/dist/"><img src="./src/img/index-icon-01.png" alt=""></a>
             </h1>
+            <button class="header__btn is-sp js-humBtn">
+                <span class="header__btnInner">メニューを開く</span>
+            </button>
             <nav class="header__nav">
                 <ul id="js-header-list" class="header__list">
-                    <li class="header__item"><a href="/aaa/">aaa</a></li>
-                    <li class="header__item"><a href="/bbb/">bbb</a></li>
-                    <li class="header__item"><a href="/ccc/">ccc</a></li>
-                    <li class="header__item"><a href="/ddd/">ddd</a></li>
+                    <li class="header__item"><a href="/**DUMMY**/">当院の特徴</a></li>
+                    <li class="header__item"><a href="/**DUMMY**/">セルフ診断</a></li>
+                    <li class="header__item"><a href="/**DUMMY**/">院内紹介</a></li>
+                    <li class="header__item"><a href="/**DUMMY**/">よくある質問</a></li>
+                    <li class="header__item"><a href="/**DUMMY**/">アクセス</a></li>
+                    <li class="header__item header__item--btn"><a href="/**DUMMY**/">
+                    </a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <br><br><br>
-    <h1>TOP</h1>
-    <br><br><br>
+
+    <!-- main -->
+    <main id="main">
+        <div class="mv">
+            <div class="mv__inner">
+                <div class="mv__contentWrap">
+                    <p class="mv__hdg"><b>噛める歯、<br>噛める顎へ</b></p>
+                    <div class="mv__txt">
+                        <p class="mv__txtInner">
+                            <span class="mv__txtItem">長引く歯の噛み合わせ治療、</span>
+                            <span class="mv__txtItem">治らないマウスピース治療でお悩みの方</span>
+                            <span class="mv__txtItem">ご相談ください</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+
+    </footer>
     <script src="./src/js//index.js"></script>
 </body>
 </html>
