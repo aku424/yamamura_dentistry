@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass dev/scss/style.scss docs/src/css/main.css -w --output-style compressed",
+    "sass": "node-sass dev/scss/style.scss docs/src/css/main.css -w --output-style ",
     "build": "webpack --mode development --watch",
     "server": "browser-sync start --config bs-config.js"
   },
