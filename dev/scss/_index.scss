@@ -3,6 +3,7 @@
 ====================================================================*/
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -13,12 +14,29 @@ body {
     font-family: $ff-sans;
 }
 
+main {
+    position: relative;
+    margin-top: 107px;
+
+    @include mq(md){
+        margin-top: 147px;
+    }
+
+    @include mq(sm){
+        margin-top: 65px;
+    }
+
+    h2[id^="anc-"] {
+        padding-top: 150px;
+        margin-top: -150px;
+    }
+}
+
 .inner {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 24px;
-    box-sizing: content-box;
 
     &--narrow {
         max-width: 890px;
@@ -83,10 +101,135 @@ h2[class$="__ttlMain"] {
     }
 }
 
+@mixin width_fit {
+    width: fit-content;
+}
 
+@mixin btn ($fz,$ptb, $plr, $pl, $icn-w, $icn-h, $icn-l, $mm){    
+    display: block;
+    max-width: $mm;
+    border-radius: 1em;
+    border: 2px solid $c-02;
+    padding: 2px;
+    background-color: $c-01;
+    text-decoration: none;
 
-.btn {
+    &__inner {
+        border-radius: .8em;
+        background-color: $c-02;
+        padding: $ptb $plr;
+    }
 
+    &__content {
+        position: relative;
+        padding-left: $pl;
+
+        &::before{
+            position: absolute;
+            content: "";
+            width: $icn-w;
+            height: $icn-h;
+            background-image: url("../img/index-icon-04.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: $icn-l;
+        }
+    }
+
+    &__txt {
+        color: $c-01;
+        font-size: $fz;
+        line-height: 1;
+
+        &:last-child {
+            margin-top: 4px;
+            font-weight: bold;
+            letter-spacing: .4em
+        }
+    }
+}
+
+//CV_btn
+.cv {
+    position: fixed;
+    top: 25%;
+    right: 0;
+    z-index: 999;
+
+    .btn {
+        @include btn (1.9rem , 18px, 30px, 0, 34px, 34px, 25px, 107px);
+
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+
+        &__inner {
+            padding-top: 65px;
+            width: 99px;
+        }
+
+        &__content {
+            &::before{
+                top: -13%;
+            }
+        }
+
+        &__txt {
+            line-height: 1.3;
+            &:last-child {
+                display: flex;
+                align-items: center;
+                letter-spacing: 0;
+                font-size: 1.8rem;
+
+                span {
+                    display: inline-block;
+                    line-height: 1;
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}
+
+// toTOP
+.toTop {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 106px;
+    height: 106px;
+    border-radius: 25em;
+    background-color: $c-02;
+
+    &__inner {
+        display: block;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding-top: 52px;
+    }
+
+    span {
+        position: relative;
+        font-size: 2.4rem;
+        color: $c-01;
+
+        &::before{
+            position: absolute;
+            content: "";
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background-color: $c-01;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            left: 50%;
+            top: -12px;
+        }
+    }
 }
 
 /*====================================================================
@@ -96,11 +239,13 @@ h2[class$="__ttlMain"] {
 .header {
     $this: &;
 
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     border-bottom: 1px solid #fff;
     background-color: $c-01;
-    z-index: 100;
+    z-index: 1000;
 
     &__inner {
         position: relative;
@@ -108,14 +253,20 @@ h2[class$="__ttlMain"] {
         justify-content: space-between;
         align-items: bottom;
         width: 100%;
-        max-width: 1216px;
+        max-width: 1225px;
         margin: 0 auto;
-        padding: 16px;
-        overflow-x: hidden;
+        padding: 16px 16px 20px;
     }
 
     &__logo {
         width: 300px;
+        flex-grow: 0;
+        display: flex;
+        align-items: end;
+
+        a {
+            
+        }
     }
 
     &__nav {
@@ -127,10 +278,20 @@ h2[class$="__ttlMain"] {
     &__list {
         margin-top: auto;
         display: flex;
-        gap: 18px;
-        align-items: center;
+        gap: 26px;
+        align-items: end;
         list-style: none;
         padding: 0;
+
+        @include mq(md){
+            justify-content: end;
+            flex-wrap: wrap;
+            gap: 14px 26px;
+        }
+
+        @include mq(sm){
+            margin-top: 0;
+        }
     }
 
     &__item {
@@ -139,7 +300,7 @@ h2[class$="__ttlMain"] {
             color: #000;
             text-decoration: none;
             transition: opacity .2s;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: $c-02;
 
@@ -148,17 +309,30 @@ h2[class$="__ttlMain"] {
             }
         }
 
-        &--current {
-            position: relative;
+        @include mq(md){
+            color: red;
+            @for $i from 1 to 6 {
+                &:nth-child(#{$i}) {
+                    order: $i + 1;
+                }
+            }
+        }
 
-            &::before{
-                position: absolute;
-                content: "";
+        &--btn {
+            
+            @include mq(md){
+                order: 1;
                 width: 100%;
-                height: 2px;
-                background-color: #000;
-                bottom: -2px;
-                left: 0;
+            }
+
+            .btn {
+                @include btn (1.5rem , 14px, 15px, 49px, 23px, 23px, 17px, 258px);
+
+                width: 258px;
+
+                @include mq(md){
+                    margin-left: auto;
+                }
             }
         }
     }
@@ -199,7 +373,7 @@ h2[class$="__ttlMain"] {
         top: 50%;
         display: block;
         width: 24px;
-        height: 2.5px;
+        height: 2.4px;
         border-radius: 25em;
         text-indent: 100%;
         overflow: hidden;
@@ -209,7 +383,7 @@ h2[class$="__ttlMain"] {
 
     @include mq(sm){
         &__inner {
-            padding: 4px 16px;
+            padding: 12px 16px;
             align-items: center;
         }
 
@@ -284,14 +458,16 @@ h2[class$="__ttlMain"] {
         max-width: 1000px;
         margin: 0 auto;
         // padding: clamp(40px, 6.25vw, 85px) 24px 63px;
-        padding: 85px 24px 63px;
+        padding: 69px 10px;
     }
 
     &__hdg {
-        // font-size: clamp(4.8rem, 5.86vw, 7.5rem);
+        @include line-height(78, 85);
+
         font-size: 7.5rem;
         color: $c-02;
         font-family: $ff-serif;
+        letter-spacing: 5px;
     }
     
     &__txt {
@@ -313,9 +489,10 @@ h2[class$="__ttlMain"] {
         font-size: 3.0rem;
         background-color: rgba(40, 60, 84, .7);
         color: $c-01;
+        letter-spacing: 1px;
 
         &+& {
-            margin-top: 12px;
+            margin-top: 16px;
         }
     }
 }
@@ -324,8 +501,8 @@ h2[class$="__ttlMain"] {
 // ==========================================
 .lead {
     .inner {
-        padding-top: 85px;
-        padding-bottom: 70px;
+        padding-top: 79px;
+        padding-bottom: 64px;
         background-image: url("../img/index-bg-01.png");
         background-position: center 10px;
         background-size: cover;
@@ -346,6 +523,7 @@ h2[class$="__ttlMain"] {
 .worry {
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,248,248,1) 30%, rgba(237,234,234,1) 100%);
+    overflow: hidden;
     
     .inner {
         position: relative;
@@ -356,7 +534,7 @@ h2[class$="__ttlMain"] {
         width: 100%;
         clip-path: polygon(0% 0%, 100% 0, 100% 80%, 50% 100%, 0 80%);
         background-color: $c-02;
-        padding: 28px 185px 60px;
+        padding: 28px 16px 60px;
         color: $c-01;
     }
 
@@ -383,16 +561,16 @@ h2[class$="__ttlMain"] {
 
     &__hdgMain {
         width: fit-content;
-        margin: 0 auto;
+        margin: 0 auto 0 36%;
         @include line-height(38, 50)
     }
 
     &__hdgContent {
-        font-size: 3.8rem;
+        font-size: 5rem;
     }
 
     &__hdgPoint {
-        font-size: 6.2rem;
+        font-size: 7.2rem;
 
         padding-top: 30px; // 文字とドットの距離
         background-position: top left -2px; // ドットの位置微調整
@@ -412,13 +590,13 @@ h2[class$="__ttlMain"] {
 
     &__content {
         width: 100%;
-        padding-bottom: 42px;
+        padding-bottom: 52px;
 
         &::before{
             position: absolute;
             content: "";
-            width: 296px;
-            height: 333px;
+            width: 383px;
+            height: 459px;
             bottom: 0;
             background-size: contain;
             background-position: center;
@@ -429,8 +607,8 @@ h2[class$="__ttlMain"] {
             &::before{
                 background-image: url("../img/index-img-01.png");
                 left: -53px;
-                width: 336px;
-                height: 412px;
+                width: 383px;
+                height: 459px;
             }
         }
 
@@ -438,6 +616,8 @@ h2[class$="__ttlMain"] {
             &::before{
                 background-image: url("../img/index-img-02.png");
                 right: -51px;
+                width: 341px;
+                height: 389px;
             }
         }
     }
@@ -455,6 +635,8 @@ h2[class$="__ttlMain"] {
         padding: 14px 16px 12px;
         font-size: 2.0rem;
         background-image: url("../img/index-img-23.png");
+        background-size: contain;
+        background-position: center;
 
 
         &+& {
@@ -498,7 +680,7 @@ h2[class$="__ttlMain"] {
         border-radius: 3px;
         box-shadow: 0px 10px 8px -5px #777777;
         padding: 40px 42px;
-        margin-bottom: 80px;
+        margin-bottom: 89px;
     }
 
     &__contentHdg {
@@ -587,6 +769,7 @@ h2[class$="__ttlMain"] {
 
     &__ttl {
         color: $c-01;
+        padding-left: 90px;
     }
 
     &__desc {
@@ -594,12 +777,13 @@ h2[class$="__ttlMain"] {
         font-size: 2.4rem;
         text-align: center;
         font-weight: bold;
+        
     }
 
     &__card {
         display: flex;
         gap: clamp(20px, 3.44vw, 44px);
-        padding-bottom: 90px;
+        padding-bottom: 67px;
         margin-top: 40px;
     }
 
@@ -611,7 +795,7 @@ h2[class$="__ttlMain"] {
 
     &__media {
         position: relative;
-        padding: 0 16px;
+        padding: 0 26px;
     }
 
     &__txtBox {
@@ -630,7 +814,7 @@ h2[class$="__ttlMain"] {
     }
 }
 
-//      cause
+//      diag
 // ==========================================
 
 .diag {
@@ -639,6 +823,7 @@ h2[class$="__ttlMain"] {
 
     &__ttl {
         @include ttl_deco($c-02);
+
     }
 
     &__ttlMain {
@@ -707,11 +892,13 @@ h2[class$="__ttlMain"] {
     }
 
     &__message{
+        @include line-height(24, 48);
+
         position: relative;
         text-align: center;
         font-size: 2.4rem;
-        @include line-height(24, 48);
         margin-top: 100px;
+        margin-bottom: -30px;
         padding-bottom: 11.982570806100219%;
 
         &::after{
@@ -721,6 +908,7 @@ h2[class$="__ttlMain"] {
             padding-top: 11.982570806100219%;
             background-image: url("../img/index-img-15.png");
             background-size: cover;
+            margin-top: -30px;
             left: 0;
         }
     }
@@ -738,7 +926,7 @@ h2[class$="__ttlMain"] {
     }
 
     &__column {
-        width: 50%;
+        width: 48%;
         background-image: url("../img/index-img-17.png");
         background-size: auto 100%;
         background-repeat: no-repeat;
@@ -748,7 +936,7 @@ h2[class$="__ttlMain"] {
     &__columnHdg {
         @include line-height(22, 37);
 
-        margin-top: 28px;
+        margin-top: 15px;
         margin-left: 20px;
         background-image: url("../img/index-img-16.png");
         background-position: bottom left;
@@ -760,8 +948,9 @@ h2[class$="__ttlMain"] {
     }
 
     &__boxTxt {
-        width: 50%;
-        padding: 46px 56px;
+        width: 52%;
+        padding: 32px 56px;
+        @include line-height(16, 32);
     }
 }
 
@@ -770,6 +959,7 @@ h2[class$="__ttlMain"] {
 .intro {
     background-color: $c-08;
     padding-bottom: 83px;
+    overflow: hidden;
 
     &__ttl {
         @include ttl_deco($c-09);
@@ -843,6 +1033,8 @@ h2[class$="__ttlMain"] {
     }
 
     &__item {
+        transition: height .3s;
+        height: 100%;
 
         &+&{
             margin-top: 10px;
@@ -857,11 +1049,12 @@ h2[class$="__ttlMain"] {
     
     &__itemInner {
         display: block;
-        padding: 24px 30px;
+        padding: 15px 30px;
         text-decoration: none;
         border-radius: 3px;
         border: 4px solid $c-13;
         background-color: $c-13;
+        width: 100%;
     }
 
     &__inner {
@@ -872,11 +1065,14 @@ h2[class$="__ttlMain"] {
     &__icn {
         width: 100px;
         margin-right: 43px;
-        border-right: 2px solid $c-01;
+        border-right: 4px solid $c-01;
         flex-shrink: 0;
         flex-grow: 0;
+        display: flex;
 
         span {
+            display: inline-block;
+            text-align: left;
             color: $c-01;
             font-size: 4.8rem;
             font-weight: bold;
@@ -908,15 +1104,26 @@ h2[class$="__ttlMain"] {
             transform: translate(-50%, -50%);
             right: 45px;
             top: 50%;
+            transition: transform .2s linear;
         }
     }
 
     &__a {
-        // height: 0;
-        // overflow: hidden;
-        
+        overflow: hidden;
+        * {
+            transition: 
+            border-top .2s ease-out,
+            border-bottom .2s ease-out,
+            padding-top .2s ease-out,
+            padding-bottom .2s ease-out,
+            margin-top .2s ease-out,
+            margin-bottom .2s ease-out,
+            line-height .2s ease-out,
+            opacity .2s linear ,
+            visibility .2s linear;
+        }
+
         #{$this} {
-            
             &__itemInner {
                 margin-top: 10px;
                 background-color: $c-01;
@@ -932,6 +1139,32 @@ h2[class$="__ttlMain"] {
 
             &__txt {
                 color: $c-13;
+            }
+        }
+    }
+
+    &__item {
+        &.js-faqOpen {
+            #{$this}__q {
+                &::after{
+                    transform: rotate(180deg) translate(50%, 50%);
+                }
+            }
+        }
+
+        &.js-faqClose {
+            #{$this}__a {
+                * {
+                    border-top: 0 !important;
+                    border-bottom: 0!important;
+                    padding-top: 0!important;
+                    padding-bottom: 0!important;
+                    margin-top: 0!important;
+                    margin-bottom: 0!important;
+                    line-height: 0!important;
+                    opacity: 0!important;
+                    visibility: hidden!important;
+                }
             }
         }
     }
@@ -962,6 +1195,7 @@ h2[class$="__ttlMain"] {
 
     &__content {
         width: calc(50% - 24px);
+        margin-right: 24px;
     }
 
     &__hdg {
@@ -1006,9 +1240,19 @@ h2[class$="__ttlMain"] {
         }
     }
 
+    &__btn {
+        margin-top: 29px;
+
+        .btn {
+            @include btn (2.2rem , 28px, 30px, 65px, 35px, 38px, 21px, 380px);
+
+            min-width: 380px;
+        }
+    }
+
     &__media {
         width: 50%;
-        
+
         iframe {
             width: 100%;
             height: 100%;

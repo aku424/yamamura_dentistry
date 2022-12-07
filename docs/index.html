@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./src/css/main.css">
     <title>Document</title>
 </head>
-<body>
+<body id="top">
     <!-- header -->
     <header id="header" class="header">
         <div class="header__inner">
@@ -23,13 +23,21 @@
             </button>
             <nav class="header__nav">
                 <ul id="js-header-list" class="header__list">
-                    <li class="header__item"><a href="/**DUMMY**/">当院の特徴</a></li>
-                    <li class="header__item"><a href="/**DUMMY**/">セルフ診断</a></li>
-                    <li class="header__item"><a href="/**DUMMY**/">院内紹介</a></li>
-                    <li class="header__item"><a href="/**DUMMY**/">よくある質問</a></li>
-                    <li class="header__item"><a href="/**DUMMY**/">アクセス</a></li>
-                    <li class="header__item header__item--btn"><a href="/**DUMMY**/">
-                    </a></li>
+                    <li class="header__item"><a href="#anc-01">当院の特徴</a></li>
+                    <li class="header__item"><a href="#anc-02">セルフ診断</a></li>
+                    <li class="header__item"><a href="#anc-03">院内紹介</a></li>
+                    <li class="header__item"><a href="#anc-04">よくある質問</a></li>
+                    <li class="header__item"><a href="#anc-05">アクセス</a></li>
+                    <li class="header__item header__item--btn">
+                        <a href="tel:045-554-2821" class="btn">
+                            <div class="btn__inner">
+                                <div class="btn__content">
+                                    <p class="btn__txt">ご予約・お問い合わせは</p>
+                                    <p class="btn__txt">045-554-2821</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -95,7 +103,7 @@
         <div class="about">
             <div class="inner">
                 <div class="about__ttl">
-                    <h2 class="about__ttlMain">山村歯科クリニックは</h2>
+                    <h2 id="anc-01" class="about__ttlMain">山村歯科クリニックは</h2>
                 </div>
                 <div class="about__media">
                     <img src="./src/img/index-img-03.png" alt="歯科治療（噛み合わせ治療、強制治療）とカイロプラクティック（骨格の歪み矯正、コリほぐし、血流改善）両方からの同時アプローチを提案します。">
@@ -106,7 +114,8 @@
                             <h3 class="about__contentHdgMain">Notice!</h3>
                         </div>
                         <div class="about__txt">
-                            <p>令和４年８月から新しい治療法を取り入れ、顎関節症の症状の大部分は１回で改善が見込めるようになりました。 主な原因は歯の噛み合わ</p>
+                            <p>令和４年８月から新しい治療法を取り入れ、顎関節症の症状の大部分は１回で改善が見込めるようになりました。
+                                主な原因は歯の噛み合わせのバランス不良です。</p>
                         </div>
                     </div>
                 </div>
@@ -153,10 +162,11 @@
             </div>
         </div>
 
+        <!-- diag -->
         <div class="diag">
             <div class="inner">
                 <div class="diag__ttl">
-                    <h2 class="diag__ttlMain">セルフ診断</h2>
+                    <h2 id="anc-02" class="diag__ttlMain">セルフ診断</h2>
                 </div>
                 <div class="diag__lyt diag__lyt--reverse">
                     <div class="diag__content">
@@ -242,9 +252,8 @@
         <div class="intro">
             <div class="inner">
                 <div class="intro__ttl">
-                    <h2 class="intro__ttlMain">院内紹介</h2>
+                    <h2 id="anc-03" class="intro__ttlMain">院内紹介</h2>
                 </div>
-
                 <div class="intro__slider">
                     <div class="intro__sliderInner">
                         <div class="intro__listWrap">
@@ -286,20 +295,20 @@
         <div class="faq">
             <div class="inner">
                 <div class="faq__ttl">
-                    <h2 class="faq__ttlMain">よくある質問</h2>
+                    <h2 id="anc-04" class="faq__ttlMain">よくある質問</h2>
                 </div>
                 <div class="faq__contents">
                     <dl class="faq__list">
-                        <div class="faq__item">
+                        <div class="faq__item js-faqItem js-faqClose">
                             <dt class="faq__q">
-                                <a href="" class="faq__itemInner">
+                                <button class="faq__itemInner js-faqFuck">
                                     <div class="faq__inner">
                                         <div class="faq__icn"><span>Q</span></div>
                                         <div class="faq__txt">
                                             <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </dt>
                             <dd class="faq__a">
                                 <div class="faq__itemInner">
@@ -312,16 +321,16 @@
                                 </div>
                             </dd>
                         </div>
-                        <div class="faq__item">
+                        <div class="faq__item js-faqClose js-faqItem">
                             <dt class="faq__q">
-                                <a href="" class="faq__itemInner">
+                                <button class="faq__itemInner js-faqFuck">
                                     <div class="faq__inner">
                                         <div class="faq__icn"><span>Q</span></div>
                                         <div class="faq__txt">
                                             <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </dt>
                             <dd class="faq__a">
                                 <div class="faq__itemInner">
@@ -334,16 +343,16 @@
                                 </div>
                             </dd>
                         </div>
-                        <div class="faq__item">
+                        <div class="faq__item js-faqClose js-faqItem">
                             <dt class="faq__q">
-                                <a class="faq__itemInner" href="">
+                                <button class="faq__itemInner js-faqFuck">
                                     <div class="faq__inner">
                                         <div class="faq__icn"><span>Q</span></div>
                                         <div class="faq__txt">
                                             <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </dt>
                             <dd class="faq__a">
                                 <div class="faq__itemInner">
@@ -356,16 +365,16 @@
                                 </div>
                             </dd>
                         </div>
-                        <div class="faq__item">
+                        <div class="faq__item js-faqClose js-faqItem">
                             <dt class="faq__q">
-                                <a href="" class="faq__itemInner">
+                                <button class="faq__itemInner js-faqFuck">
                                     <div class="faq__inner">
                                         <div class="faq__icn"><span>Q</span></div>
                                         <div class="faq__txt">
                                             <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </dt>
                             <dd class="faq__a">
                                 <div class="faq__itemInner">
@@ -378,16 +387,16 @@
                                 </div>
                             </dd>
                         </div>
-                        <div class="faq__item">
+                        <div class="faq__item js-faqClose js-faqItem">
                             <dt class="faq__q">
-                                <a href="" class="faq__itemInner">
+                                <button class="faq__itemInner js-faqFuck">
                                     <div class="faq__inner">
                                         <div class="faq__icn"><span>Q</span></div>
                                         <div class="faq__txt">
                                             <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
                                         </div>
                                     </div>
-                                </a>
+                                </button>
                             </dt>
                             <dd class="faq__a">
                                     <div class="faq__itemInner">
@@ -406,7 +415,7 @@
         </div>
 
         <!-- access -->
-        <div class="access">
+        <div id="anc-05" class="access">
             <div class="inner">
                 <div class="access__ttl">
                     <h2 class="access__ttlMain">アクセス</h2>
@@ -430,20 +439,39 @@
                                 <p class="access__desc">ご来院の前に必ずお電話にてお問い合わせください</p>
                             </div>
                         </div>
-                        <a class="btn">
-                            <div class="btn__inner">
-                                <div class="btn__content">
-                                    <p class="btn__txt">ご予約・お問い合わせは</p>
-                                    <p class="btn__txt">045-554-2821</p>
+                        <div class="access__btn">
+                            <a href="tel:045-554-2821" class="btn">
+                                <div class="btn__inner">
+                                    <div class="btn__content">
+                                        <p class="btn__txt">ご予約・お問い合わせは</p>
+                                        <p class="btn__txt">045-554-2821</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                     <div class="access__media">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.6920368335286!2d139.63135195089225!3d35.53660734540038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60185f14217bb029%3A0x6e4b152d65a65734!2z5bGx5p2R5q2v56eR44Kv44Oq44OL44OD44Kv!5e0!3m2!1sja!2sjp!4v1669898790269!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- CV_btn -->
+        <div class="cv">
+            <a href="tel:045-554-2821" class="btn">
+                <div class="btn__inner">
+                    <div class="btn__content">
+                        <p class="btn__txt">ご予約・お問い合わせは</p>
+                        <p class="btn__txt">045<span>-</span>554<span>-</span>2821</p>
+                    </div>
+                </div>
+        </div>
+
+        <!-- toTop -->
+        <div class="toTop">
+            <a href="#top" class="toTop__inner">
+                <span>TOP</span>
+            </a>
         </div>
     </main>
 

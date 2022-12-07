@@ -2,8 +2,8 @@ $breakpoints: (
 //キー  値
     'xs': 'screen and (max-width: 376px)',
     'sm': 'screen and (max-width: 768px)', //767px以下（スマホ）用の表示
-    'md': 'screen and (max-width: 1025px)', //1024px以上（タブレット・PC）用の表示
-    'xl': 'screen and (min-width: 1026px)'
+    'md': 'screen and (max-width: 1080px)', //1024px以上（タブレット・PC）用の表示
+    'xl': 'screen and (min-width: 1081px)'
 
 ) !default;
 
@@ -38,6 +38,7 @@ $breakpoints: (
 @mixin line-height($font-size, $height) {
     line-height: calc(#{$height} / #{$font-size});
 }
+
 
 /*====================================================================
                     color
