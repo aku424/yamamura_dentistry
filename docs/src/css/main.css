@@ -523,7 +523,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   position: relative;
   border: 3px solid #283c54;
   border-radius: 3px;
-  box-shadow: 0px 10px 8px -5px #777777;
+  box-shadow: 5.035px 6.217px 5.7px 0.3px rgba(0, 0, 0, 0.42);
   padding: 40px 42px;
   margin-bottom: 89px; }
 
@@ -610,6 +610,22 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   .cause__media {
     position: relative;
     padding: 0 26px; }
+  .cause__name {
+    position: absolute;
+    font-size: 1.8rem;
+    font-weight: bold; }
+    .cause__name--01 {
+      color: #283c54;
+      top: 11%;
+      right: 28%; }
+    .cause__name--02 {
+      color: #fff;
+      top: 35%;
+      right: 20%; }
+    .cause__name--03 {
+      color: #fff;
+      top: 14%;
+      right: 23%; }
   .cause__txtBox {
     padding: 40px 16px;
     display: flex;
@@ -627,7 +643,6 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   .diag__ttl {
     position: relative;
     color: #283c54;
-    width: calc(100% - 60px);
     margin: 0 auto 45px;
     text-align: center; }
     .diag__ttl::before {
@@ -744,7 +759,6 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   .intro__ttl {
     position: relative;
     color: #6a6454;
-    width: calc(100% - 60px);
     margin: 0 auto 45px;
     text-align: center; }
     .intro__ttl::before {
@@ -796,7 +810,6 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   .faq__ttl {
     position: relative;
     color: #283c54;
-    width: calc(100% - 60px);
     margin: 0 auto 45px;
     text-align: center; }
     .faq__ttl::before {
@@ -906,7 +919,6 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   .access__ttl {
     position: relative;
     color: #6a6454;
-    width: calc(100% - 60px);
     margin: 0 auto 45px;
     text-align: center; }
     .access__ttl::before {
@@ -963,7 +975,8 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     .access__info.time::before {
       background-image: url("../img/index-icon-03.png");
       width: 28px;
-      height: 28px; }
+      height: 28px;
+      top: 25px; }
   .access__btn {
     margin-top: 29px; }
     .access__btn .btn {

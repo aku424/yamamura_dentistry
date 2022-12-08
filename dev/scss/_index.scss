@@ -75,7 +75,6 @@ h2[class$="__ttlMain"] {
 @mixin ttl_deco($color) {
     position: relative;
     color: $color;
-    width: calc(100% - 60px);
     margin: 0 auto 45px;
     text-align: center;
 
@@ -481,7 +480,6 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     }
     
     &__txt {
-        // margin-top: clamp(70px, 8.59vw, 110px);
         margin-top:  110px;
         font-family: $ff-serif;
     }
@@ -688,7 +686,8 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         position: relative;
         border: 3px solid $c-02;
         border-radius: 3px;
-        box-shadow: 0px 10px 8px -5px #777777;
+        // box-shadow: 0px 10px 8px -5px #777777;
+        box-shadow: 5.035px 6.217px 5.7px 0.3px rgba(0, 0, 0, 0.42);
         padding: 40px 42px;
         margin-bottom: 89px;
     }
@@ -806,6 +805,30 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     &__media {
         position: relative;
         padding: 0 26px;
+    }
+
+    &__name {
+        position: absolute;
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        &--01 {
+            color: $c-02;
+            top: 11%;
+            right: 28%;
+        }
+
+        &--02 {
+            color: $c-01;
+            top: 35%;
+            right: 20%;
+        }
+
+        &--03 {
+            color: $c-01;
+            top: 14%;
+            right: 23%;
+        }
     }
 
     &__txtBox {
@@ -1246,6 +1269,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 background-image: url("../img/index-icon-03.png");
                 width: 28px;
                 height: 28px;
+                top: 25px;
             }
         }
     }
