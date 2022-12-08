@@ -6,10 +6,6 @@ export default class faqAccordion{
 
     init (){
         this.faqFunc();
-
-        // for (const fuck of this.fucks) {
-        //     fuck.addEventListener("click", this.faqFunc.bind(this));
-        // };
     }
 
     faqFunc() {
@@ -26,8 +22,6 @@ export default class faqAccordion{
                     target.classList.remove("js-faqClose");
                     target.classList.add("js-faqOpen");
                 }
-
-                // target.classList.toggle("js-faqOpen");
             });
         };
     }

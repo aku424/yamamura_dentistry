@@ -40,25 +40,25 @@ img {
                     共通
 ====================================================================*/
 html {
-  font-size: 10px;
-  scroll-behavior: smooth; }
+  font-size: 10px; }
 
 body {
+  position: relative;
   background-color: #fff;
   color: #333;
   font-size: 1.6rem;
   line-height: 1.666;
-  font-family: "Noto Sans JP", sans-serif; }
+  font-family: "Noto Sans JP", sans-serif;
+  padding-top: 107px; }
+  @media screen and (max-width: 1080px) {
+    body {
+      padding-top: 147px; } }
+  @media screen and (max-width: 768px) {
+    body {
+      padding-top: 65px; } }
 
 main {
-  position: relative;
-  margin-top: 107px; }
-  @media screen and (max-width: 1080px) {
-    main {
-      margin-top: 147px; } }
-  @media screen and (max-width: 768px) {
-    main {
-      margin-top: 65px; } }
+  position: relative; }
   main h2[id^="anc-"] {
     padding-top: 150px;
     margin-top: -150px; }
@@ -96,8 +96,11 @@ h2[class$="__ttlMain"] {
 .cv {
   position: fixed;
   top: 25%;
-  right: 0;
-  z-index: 999; }
+  right: 5px;
+  z-index: 999;
+  width: fit-content;
+  display: block;
+  width: 100px; }
   .cv .btn {
     display: block;
     max-width: 107px;
@@ -151,6 +154,9 @@ h2[class$="__ttlMain"] {
           display: inline-block;
           line-height: 1;
           transform: rotate(90deg); }
+
+_::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
+  letter-spacing: 5px; }
 
 .toTop {
   position: fixed;
@@ -206,7 +212,7 @@ h2[class$="__ttlMain"] {
     width: 300px;
     flex-grow: 0;
     display: flex;
-    align-items: end; }
+    align-items: flex-end; }
   .header__nav {
     display: flex;
     align-items: baseline;
@@ -215,12 +221,12 @@ h2[class$="__ttlMain"] {
     margin-top: auto;
     display: flex;
     gap: 26px;
-    align-items: end;
+    align-items: flex-end;
     list-style: none;
     padding: 0; }
     @media screen and (max-width: 1080px) {
       .header__list {
-        justify-content: end;
+        justify-content: flex-end;
         flex-wrap: wrap;
         gap: 14px 26px; } }
     @media screen and (max-width: 768px) {
@@ -820,6 +826,8 @@ h2[class$="__ttlMain"] {
     height: 100%; }
     .faq__item + .faq__item {
       margin-top: 10px; }
+  .faq__q, .faq__a {
+    text-align-last: left; }
   .faq__itemInner {
     display: block;
     padding: 15px 30px;
@@ -869,7 +877,7 @@ h2[class$="__ttlMain"] {
   .faq__a {
     overflow: hidden; }
     .faq__a * {
-      transition: border-top .2s ease-out, border-bottom .2s ease-out, padding-top .2s ease-out, padding-bottom .2s ease-out, margin-top .2s ease-out, margin-bottom .2s ease-out, line-height .2s ease-out, opacity .2s linear , visibility .2s linear; }
+      transition: border-top .2s ease-out, border-bottom .2s ease-out, padding-top .2s ease-out, padding-bottom .2s ease-out, margin-top .2s ease-out, margin-bottom .2s ease-out, opacity .2s linear , visibility .2s linear; }
     .faq__a .faq__itemInner {
       margin-top: 10px;
       background-color: #fff; }
