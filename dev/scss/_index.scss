@@ -25,12 +25,6 @@ body {
 
 main {
     position: relative;
-    
-
-    // h2[id^="anc-"] {
-    //     padding-top: 150px;
-    //     margin-top: -150px;
-    // }
 }
 
 .inner {
@@ -372,8 +366,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 @include btn (1.5rem , 14px, 15px, 49px, 23px, 23px, 17px, 258px);
                 
                 width: 258px;
-                
+
                 @include mq(md){
+                    margin-left: auto;
+                }
+                
+                @include mq(sm){
                     @include btn (1.2rem , 8px, 12px, 30px, 18px, 20px, 17px, 100%);
 
                     width: 100%;
