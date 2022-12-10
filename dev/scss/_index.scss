@@ -3,7 +3,6 @@
 ====================================================================*/
 html {
     font-size: 10px;
-    // scroll-behavior: smooth;
 }
 
 body {
@@ -28,10 +27,10 @@ main {
     position: relative;
     
 
-    h2[id^="anc-"] {
-        padding-top: 150px;
-        margin-top: -150px;
-    }
+    // h2[id^="anc-"] {
+    //     padding-top: 150px;
+    //     margin-top: -150px;
+    // }
 }
 
 .inner {
@@ -42,6 +41,10 @@ main {
 
     &--narrow {
         max-width: 890px;
+    }
+
+    @include mq(sm){
+        padding: 0 16px;
     }
 }
 
@@ -64,12 +67,21 @@ main {
     padding-top: 74px;
     margin-bottom: 45px;
     text-align: center;
+
+    @include mq(sm){
+        padding-top: 45px;
+        margin-bottom: 24px;
+    }
 }
 
 h2[class$="__ttlMain"] {
     font-size: 4.8rem;
     text-align: center;
     font-weight: bold;
+
+    @include mq(sm){
+        font-size: 2.8rem;
+    }
 }
 
 @mixin ttl_deco($color) {
@@ -99,6 +111,17 @@ h2[class$="__ttlMain"] {
         top: 75%;
         left: 50%;
         z-index: 0;
+    }
+
+    @include mq(sm){
+        &::before{
+            top: 85%;
+        }
+        
+        &::after{
+            top: 85%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 90%,rgba(255, 255, 255, 0) 100%);    
+        }
     }
 }
 
@@ -137,6 +160,11 @@ h2[class$="__ttlMain"] {
             transform: translate(-50%, -50%);
             top: 50%;
             left: $icn-l;
+        }
+
+        @include mq(sm){
+            width: fit-content;
+            margin: 0 auto;
         }
     }
 
@@ -212,6 +240,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     height: 106px;
     border-radius: 25em;
     background-color: $c-02;
+    z-index: 999;
 
     &__inner {
         display: block;
@@ -239,6 +268,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             top: -12px;
         }
     }
+}
+
+// テキストの開業調整
+.newLine {
+    display: inline-block;
 }
 
 /*====================================================================
@@ -336,10 +370,13 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
 
             .btn {
                 @include btn (1.5rem , 14px, 15px, 49px, 23px, 23px, 17px, 258px);
-
+                
                 width: 258px;
-
+                
                 @include mq(md){
+                    @include btn (1.2rem , 8px, 12px, 30px, 18px, 20px, 17px, 100%);
+
+                    width: 100%;
                     margin-left: auto;
                 }
             }
@@ -404,11 +441,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             position: absolute;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             top: 0;
             right: -100%;
             bottom: 0;
-            width: clamp(180px, 50vw, 300px);
+            width: clamp(180px, 60vw, 350px);
             height: 100vh;
             background-color: $c-01;
             transform: translateX(0%);
@@ -418,6 +455,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             flex-direction: column;
             justify-content: center;
             gap: 16px;
+            padding: 0 14px;
         }
 
         &.is-open {
@@ -460,14 +498,22 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
 .mv {
     background-image: url("../img/index-mv-01.png");
     background-size: cover;
-    background-position: 0 center;
+    background-position: center 0;
+    
+    @include mq(sm){
+        background-image: url("../img/index-mv-02.png");
+        background-position: 70% 0;
+    }
 
     &__inner {
         width: 100%;
         max-width: 1000px;
         margin: 0 auto;
-        // padding: clamp(40px, 6.25vw, 85px) 24px 63px;
         padding: 69px 10px;
+        
+        @include mq(sm){
+            padding: clamp(42px, 11.2vw, 65px) 10px;
+        }
     }
 
     &__hdg {
@@ -477,15 +523,19 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         color: $c-02;
         font-family: $ff-serif;
         letter-spacing: 5px;
+
+        @include mq(sm){
+            font-size: clamp(40px, 10.67vw, 48px);
+        }
     }
     
     &__txt {
         margin-top:  110px;
         font-family: $ff-serif;
-    }
 
-    &__txtInner {
-
+        @include mq(sm){
+            margin-top: 14.32vw;
+        }
     }
 
     &__txtItem {
@@ -498,6 +548,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         background-color: rgba(40, 60, 84, .7);
         color: $c-01;
         letter-spacing: 1px;
+
+        @include mq(sm){
+            font-size: clamp(18px, 4.33vw, 24px);
+        }
 
         &+& {
             margin-top: 16px;
@@ -521,6 +575,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         
         text-align: center;
         font-size: 2.4rem;
+
+        @include mq(sm){
+            font-size: 1.8rem;
+        }
     }
 }
 
@@ -544,6 +602,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         background-color: $c-02;
         padding: 28px 16px 60px;
         color: $c-01;
+        
+        @include mq(sm){
+            text-align: center;
+            padding: 28px 16px 44px;
+        }
     }
 
     &__deco {
@@ -565,35 +628,68 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             left: 0;
             bottom: -10px;
         }
+
+        @include mq(sm){
+            position: relative;
+            margin: 0 auto;
+            top: auto;
+            left: auto;
+            font-size: 2.4rem;
+
+            &::after{
+                width: 70px;
+            }
+        }
     }
 
     &__hdgMain {
+        @include line-height(38, 50);
+
         width: fit-content;
         margin: 0 auto 0 36%;
-        @include line-height(38, 50)
+
+        @include mq(sm){
+            margin-left: 0;
+            width: 100%;
+        }
     }
 
     &__hdgContent {
         font-size: 5rem;
+
+        @include mq(sm){
+            font-size: 2.8rem;
+            margin-top: 16px;
+        }
     }
 
     &__hdgPoint {
         font-size: 7.2rem;
-
         padding-top: 30px; // 文字とドットの距離
         background-position: top left -2px; // ドットの位置微調整
         background-repeat: repeat-x; // ドットをどの方向に設定するか
         background-size: 1em 1em; // 繰り返す頻度
         background-image: radial-gradient($c-01 12%, transparent 12%); // ドットの大きさと色
-
+        
+        @include mq(sm){
+            font-size: 3.8rem;
+            padding-top: 14px;
+            background-image: radial-gradient($c-01 8%, transparent 8%); // ドットの大きさと色
+        }
     }
 
     &__lyt {
         display: flex;
-        max-width: 712px;
+        max-width: 742px;
         width: 100%;
         margin: 30px auto 0;
         gap: 20px;
+        padding: 0 50px;
+
+        @include mq(sm){
+            flex-direction: column;
+            padding: 0;
+        }
     }
 
     &__content {
@@ -607,7 +703,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             height: 459px;
             bottom: 0;
             background-size: contain;
-            background-position: center;
+            background-position: 0 100%;
             background-repeat: no-repeat;
         }
         
@@ -616,6 +712,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 background-image: url("../img/index-img-01.png");
                 left: -53px;
                 width: 383px;
+                width: clamp(150px, 29.92vw, 383px);
                 height: 459px;
             }
         }
@@ -625,7 +722,20 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 background-image: url("../img/index-img-02.png");
                 right: -51px;
                 width: 341px;
+                width: clamp(140px, 26.64vw,341px);
                 height: 389px;
+            }
+        }
+
+        @include mq(sm){
+            position: relative;
+
+            &:first-child {
+                padding-left: 50px;
+            }
+
+            &:last-child {
+                padding-right: 50px;
             }
         }
     }
@@ -645,10 +755,20 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         background-image: url("../img/index-img-23.png");
         background-size: contain;
         background-position: center;
+        background-repeat: no-repeat;
 
 
         &+& {
             margin-top: 14px;
+        }
+
+        @include mq(sm){
+            font-size: 1.6rem;
+            height: 190px;
+
+            &+& {
+                margin-top: 0;
+            }
         }
     }
 
@@ -686,10 +806,15 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         position: relative;
         border: 3px solid $c-02;
         border-radius: 3px;
-        // box-shadow: 0px 10px 8px -5px #777777;
         box-shadow: 5.035px 6.217px 5.7px 0.3px rgba(0, 0, 0, 0.42);
         padding: 40px 42px;
         margin-bottom: 89px;
+
+        @include mq(sm){
+            padding: 32px 18px;
+            margin-bottom: 60px;
+            margin-top: 40px;
+        }
     }
 
     &__contentHdg {
@@ -731,6 +856,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             width: 130px;
         }
     }
+
+    &__txt {
+        @include mq(sm){
+            font-size: 1.4rem;
+        }
+    }
 }
 
 //      cause
@@ -765,6 +896,14 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         padding: 80px 60px;
         top: 30px;
         left: -143px;
+
+        @include mq(sm){
+            background-image: url("../img/index-img-06-sp.png");
+            top: -3%;
+            left: 0;
+            width: clamp(150px, 60vw, 300px);
+            box-sizing: border-box;
+        }
     }
 
     &__decoTxt {
@@ -774,11 +913,23 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         font-weight: bold;
         font-size: 2.4rem;
         transform: rotate(-15deg);
+
+        @include mq(sm){
+            font-size: 1.4rem;
+            transform: rotate(0);
+            width: 84px;
+            margin: 0 auto;
+        }
     }
 
     &__ttl {
         color: $c-01;
         padding-left: 90px;
+
+        @include mq(sm){
+            padding-top: 120px;
+            padding-left: 0;
+        }
     }
 
     &__desc {
@@ -787,6 +938,9 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         text-align: center;
         font-weight: bold;
         
+        @include mq(sm){
+            font-size: 1.6rem;
+        }
     }
 
     &__card {
@@ -794,6 +948,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         gap: clamp(20px, 3.44vw, 44px);
         padding-bottom: 67px;
         margin-top: 40px;
+
+        @include mq(sm){
+            margin-top: 24px;
+            flex-direction: column;
+            gap: 12px;
+        }
     }
 
     &__item {
@@ -805,6 +965,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     &__media {
         position: relative;
         padding: 0 26px;
+
+        @include mq(sm){
+            max-width: 300px;
+            margin: 0 auto;
+        }
     }
 
     &__name {
@@ -871,6 +1036,14 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         &+& {
             margin-top: 40px;
         }
+
+        @include mq(sm){
+            flex-direction: column;
+
+            &+& {
+                margin-top: 16px;
+            }
+        }
     }
 
     &__content {
@@ -880,22 +1053,39 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         justify-content: center;
         background-color: $c-06;
         padding: 24px;
+
+        @include mq(sm){
+            width: 100%;
+            padding: 16px;
+            font-size: 1.4rem;
+        }
     }
 
     &__media {
-        position: relative;
+        display: flex;
+        align-items: center;
         width: 50%;
         min-height: 400px;
         padding-bottom: 45px;
+        
+        @include mq(sm){
+            width: 100%;
+            min-height: 0;
+            justify-content: center;
+        }
+    }
+    
+    &__mediaBg {
+        position: relative;
 
         &::after{
             position: absolute;
             content: "";
             width: 80%;
-            height: 80%;
+            padding-top: 75%;
             border-radius: 3px;
             border: 10px solid $c-02;
-            transform: translate(0, calc(-100% + 45px));
+            bottom: -45px;
         }
     }
 
@@ -916,11 +1106,15 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 margin-left: 0;
             }
 
-            &__media {
+            &__mediaBg {
                 &::after{
                     right: 0;
                 }
             }
+        }
+
+        @include mq(sm){
+            flex-direction: column;
         }
     }
 
@@ -942,7 +1136,13 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             background-image: url("../img/index-img-15.png");
             background-size: cover;
             margin-top: -30px;
+            bottom: 0;
             left: 0;
+        }
+
+        @include mq(sm){
+            margin-top: 40px;
+            font-size: 1.6rem;
         }
     }
 
@@ -956,6 +1156,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         display: flex;
         border: 3px dotted $c-07;
         color: $c-01;
+
+        @include mq(sm){
+            flex-direction: column;
+        }
     }
 
     &__column {
@@ -964,6 +1168,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         background-size: auto 100%;
         background-repeat: no-repeat;
         background-position: right;
+
+        @include mq(sm){
+            width: 100%;
+            max-width: 310px;
+            margin: 0 auto;
+        }
     }
 
     &__columnHdg {
@@ -981,9 +1191,15 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     }
 
     &__boxTxt {
+        @include line-height(16, 32);
+
         width: 52%;
         padding: 32px 56px;
-        @include line-height(16, 32);
+        
+        @include mq(sm){
+            width: 100%;
+            padding: 18px;
+        }
     }
 }
 
@@ -993,6 +1209,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     background-color: $c-08;
     padding-bottom: 83px;
     overflow: hidden;
+
+    @include mq(sm){
+        padding-bottom: 60px;
+    }
 
     &__ttl {
         @include ttl_deco($c-09);
@@ -1029,6 +1249,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     &__item {
         width: calc(100vw / 4);
         padding-right: 24px;
+        
+        @include mq(sm){
+            width: calc(100vw / 3);
+            padding-right: 8px;
+        }
     }
 
     @keyframes slider {
@@ -1089,6 +1314,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         border: 4px solid $c-13;
         background-color: $c-13;
         width: 100%;
+
+        @include mq(sm){
+            padding: 12px 16px;
+        }
     }
 
     &__inner {
@@ -1113,6 +1342,17 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             font-family: $ff-sans;
             line-height: 1;
         }
+
+        @include mq(sm){
+            margin-right: 16px;
+            width: 45px;
+            border-right: 2px solid $c-01;
+
+            span {
+                font-size: 2.4rem;
+                line-height: 1.2;
+            }
+        }
     }
 
     &__txt {
@@ -1123,6 +1363,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         padding-right: 150px;
         width: 100%;
         font-size: 2.0rem;
+
+        @include mq(sm){
+            padding-right: 20px;
+            font-size: 1.4rem;
+        }
     }
 
     &__q {
@@ -1140,10 +1385,23 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             top: 50%;
             transition: transform .2s linear;
         }
+
+        @include mq(sm){
+            &::after{
+                right: 15px;
+            }
+        }
+
+        #{$this} {
+            &__itemInner {
+                cursor: pointer;
+            }
+        }
     }
 
     &__a {
         overflow: hidden;
+
         * {
             transition: 
             border-top .2s ease-out,
@@ -1209,6 +1467,10 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     background-color: $c-08;
     padding-bottom: 83px;
 
+    @include mq(sm){
+        padding-bottom: 60px;
+    }
+
     &__ttl {
         @include ttl_deco($c-09);
 
@@ -1224,15 +1486,29 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
 
     &__lyt {
         display: flex;
+
+        @include mq(sm){
+            flex-direction: column;
+            gap: 12px;
+        }
     }
 
     &__content {
         width: calc(50% - 24px);
         margin-right: 24px;
+
+        @include mq(sm){
+            width: 100%;
+            margin-right: 0;
+        }
     }
 
     &__hdg {
         width: 320px;
+
+        @include mq(sm){
+            margin: 0 auto;
+        }
     }
 
     &__info {
@@ -1272,6 +1548,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
                 top: 25px;
             }
         }
+
+        @include mq(sm){
+            &+& {
+                margin-top: 16px;
+            }
+        }
     }
 
     &__btn {
@@ -1282,6 +1564,16 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
 
             min-width: 380px;
         }
+        
+        @include mq(sm){
+            margin-top: 16px;
+
+            .btn {
+                @include btn (1.6rem , 14px, 18px, 45px, 25px, 28px, 21px, 100%);
+    
+                min-width: 0;
+            }
+        }
     }
 
     &__media {
@@ -1290,6 +1582,11 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         iframe {
             width: 100%;
             height: 100%;
+        }
+
+        @include mq(sm){
+            width: 100%;
+            height: 300px;
         }
     }
 }
