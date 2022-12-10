@@ -735,6 +735,12 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
     font-weight: bold;
     font-size: 2.4rem;
     transform: rotate(-15deg); }
+    .cause__decoTxt > span::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      color: transparent;
+      pointer-events: none; }
     @media screen and (max-width: 768px) {
       .cause__decoTxt {
         font-size: 1.4rem;
