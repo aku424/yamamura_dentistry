@@ -165,6 +165,60 @@ h2[class$="__ttlMain"] {
           display: inline-block;
           line-height: 1;
           transform: rotate(90deg); }
+  @media screen and (max-width: 768px) {
+    .cv {
+      top: auto;
+      bottom: 10px;
+      right: 100px;
+      width: 250px; }
+      .cv .btn {
+        display: block;
+        max-width: 250px;
+        border-radius: 1em;
+        border: 2px solid #283c54;
+        padding: 2px;
+        background-color: #fff;
+        text-decoration: none;
+        writing-mode: horizontal-tb;
+        text-orientation: mixed; }
+        .cv .btn__inner {
+          border-radius: .8em;
+          background-color: #283c54;
+          padding: 8px 12px; }
+        .cv .btn__content {
+          position: relative;
+          padding-left: 30px; }
+          .cv .btn__content::before {
+            position: absolute;
+            content: "";
+            width: 18px;
+            height: 20px;
+            background-image: url("../img/index-icon-04.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 17px; } }
+      @media screen and (max-width: 768px) and (max-width: 768px) {
+        .cv .btn__content {
+          width: fit-content;
+          margin: 0 auto; } }
+  @media screen and (max-width: 768px) {
+        .cv .btn__txt {
+          color: #fff;
+          font-size: 1.4rem;
+          line-height: 1; }
+          .cv .btn__txt:last-child {
+            margin-top: 4px;
+            font-weight: bold;
+            letter-spacing: .4em; }
+        .cv .btn__inner {
+          width: 242px; }
+        .cv .btn__txt:last-child {
+          font-size: 1.4rem; }
+          .cv .btn__txt:last-child span {
+            transform: rotate(0deg); } }
 
 _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
   letter-spacing: 5px; }
@@ -199,6 +253,20 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
       height: 24px;
       left: 50%;
       top: -12px; }
+  @media screen and (max-width: 768px) {
+    .toTop {
+      right: 10px;
+      bottom: 10px;
+      width: 60px;
+      height: 60px; }
+      .toTop__inner {
+        padding-top: 24px; }
+      .toTop span {
+        font-size: 1.2rem; }
+        .toTop span::before {
+          width: 16px;
+          height: 16px;
+          top: -10px; } }
 
 .newLine {
   display: inline-block; }

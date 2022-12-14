@@ -218,6 +218,33 @@ h2[class$="__ttlMain"] {
             }
         }
     }
+
+    @include mq(sm){
+        top: auto;
+        bottom: 10px;
+        right: 100px;
+        width: 250px;
+
+        .btn {
+            @include btn (1.4rem , 8px, 12px, 30px, 18px, 20px, 17px, 250px);
+            writing-mode: horizontal-tb;
+            text-orientation: mixed;
+
+            &__inner {
+                width: 242px;
+            }
+
+            &__txt {
+                &:last-child {
+                    font-size: 1.4rem;
+
+                    span {
+                        transform: rotate(00deg);
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -260,6 +287,27 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
             height: 24px;
             left: 50%;
             top: -12px;
+        }
+    }
+
+    @include mq(sm){
+        right: 10px;
+        bottom: 10px;
+        width: 60px;
+        height: 60px;
+
+        &__inner {
+            padding-top: 24px;
+        }
+
+        span {
+            font-size: 1.2rem;
+
+            &::before{
+                width: 16px;
+                height: 16px;
+                top: -10px;
+            }
         }
     }
 }
