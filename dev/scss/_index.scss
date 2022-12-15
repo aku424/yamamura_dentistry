@@ -651,7 +651,7 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         
         @include mq(sm){
             text-align: center;
-            padding: 28px 16px 44px;
+            padding: 14px 16px 44px;
         }
     }
 
@@ -1300,16 +1300,16 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
 
     &__list {
         display: flex;
-        animation: slider 15s infinite linear;
-        width: 100vw;
+        animation: slider 25s infinite linear;
+        width: 200vw;
     }
 
     &__item {
-        width: calc(100vw / 4);
+        width: calc(100vw / 2);
         padding-right: 24px;
         
         @include mq(sm){
-            width: calc(100vw / 3);
+            width: calc(100vw / 2);
             padding-right: 8px;
         }
     }
