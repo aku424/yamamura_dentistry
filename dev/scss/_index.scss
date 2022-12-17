@@ -1662,3 +1662,18 @@ _::-webkit-full-page-media, _:future, :root .cv .btn__txt:last-child {
         font-size: 1.4rem;
     }
 }
+
+
+//      フェードインアニメーション
+// ==========================================
+
+.js-fadeInTarget {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    
+    &.js-fadeInTarget__active {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 1s, transform 1s;
+    }
+}

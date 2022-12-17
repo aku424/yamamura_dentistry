@@ -13,8 +13,7 @@ export default class faqAccordion{
             fuck.addEventListener("click", () => {
                 const target = fuck.parentNode.parentNode;
                 const targetA = target.getElementsByClassName('faq__a')[0];
-                console.log(targetA);
-                
+
                 if (target.classList.contains("js-faqOpen")) {
                     target.classList.remove("js-faqOpen");
                     target.classList.add("js-faqClose");
